@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>IPLogger</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Search-Input-Responsive-with-Icon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body style="background: rgb(255,255,255);">
+    <h2 class="text-center tracking-results-heading">Tracking results for&nbsp;</h2>
+    <p class="text-center text-success bg-light">{{shortened_link}}</p>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>IP address</th>
+                    <th>Browser</th>
+                    <th>OS</th>
+                    <th>Device Type</th>
+                    <th>Device</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for device in resp %}
+                <tr>
+                    <td>{{device.ip_address}}</td>
+                    <td>{{device.browser}}</td>
+                    <td>{{device.os}}</td>
+                    <td>{{device.device_type}}</td>
+                    <td>{{device.device}}</td>
+                    <td>{{device.time}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
