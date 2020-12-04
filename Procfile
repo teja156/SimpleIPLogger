@@ -1,1 +1,1 @@
-web: gunicorn securetext_in.wsgi
+web: gunicorn IPLoggerServer.wsgi
