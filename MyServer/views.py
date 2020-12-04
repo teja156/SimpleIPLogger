@@ -11,9 +11,14 @@ import random
 import re
 from datetime import datetime
 import json
+import os
 
-TRACKING_DOMAIN_NAME = "http://127.0.0.1:8000/tracking"
-DOMAIN_NAME = "http://127.0.0.1:8000"
+# TRACKING_DOMAIN_NAME = "http://127.0.0.1:8000/tracking"
+# DOMAIN_NAME = "http://127.0.0.1:8000"
+TRACKING_DOMAIN_NAME = os.environ.get('TRACKING_DOMAIN_NAME')
+DOMAIN_NAME = os.environ.get('DOMAIN_NAME')
+
+
 # Create your views here.
 
 def formaturl(url):
