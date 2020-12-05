@@ -1,0 +1,43 @@
+.text-center.heading-text {
+  margin-top: 100px;
+}
+
+.input-box {
+  margin-top: 30px;
+}
+
+p {
+  margin-top: 20px;
+  height: 30px;
+  align-content: center;
+  vertical-align: middle;
+}
+
+.text-left.tracking-results-heading {
+  margin-top: 100px;
+}
+
+.text-center.tracking-results-heading {
+  margin-top: 100px;
+}
+
+.table-responsive {
+  margin-left: 10px;
+  margin-left: 10px;
+}
+
+.shortened_url {
+  font-size: 25px;
+}
+
+.url-text {
+  font-size: 25px;
+  margin-top:25px;
+  margin-bottom:20px;
+
+}
+
+.footer {
+  margin-top: 100px;
+}
+

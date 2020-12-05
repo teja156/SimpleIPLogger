@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>IPLogger</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Search-Input-Responsive-with-Icon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body style="text-align: center;">
+    <h1 class="text-center heading-text">IP Logger</h1>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card m-auto" style="max-width:850px">
+                <div class="card-body">
+                    <form action="{%url 'shorten' %}" method="post" class="d-flex align-items-center"><i class="fas fa-link d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" id="URL" type="search" placeholder="Enter link to shorten" name="URL" style="width: 648px;height: 39px;">
+                        <button
+                            class="btn btn-success btn-lg" type="submit">Shorten</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if shortened_link is not None %}
+    <p class="url-text" style="text-align: center;">Shortened URL : {{shortened_link}}&nbsp;</p>
+    
+    <p class="url-text" style="text-align: center;">Tracking URL : {{tracking_link}}&nbsp;</p>
+    {% endif %}
+    
+    <p>Made with&nbsp;💋 by Teja Swaroop<br><br></p>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -2,18 +2,19 @@
 <html>
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>IPLogger</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/Search-Input-Responsive-with-Icon.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Search-Input-Responsive-with-Icon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
 </head>
 
 <body style="background: rgb(255,255,255);">
     <h2 class="text-center tracking-results-heading">Tracking results for&nbsp;</h2>
-    <p class="text-center text-success bg-light">Link here</p>
+    <p class="text-center text-success bg-light">{{shortened_link}}</p>
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -27,27 +28,21 @@
                 </tr>
             </thead>
             <tbody>
+                {% for device in resp %}
                 <tr>
-                    <td>Cell 1</td>
-                    <td>Cell 2</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
+                    <td>{{device.ip_address}}</td>
+                    <td>{{device.browser}}</td>
+                    <td>{{device.os}}</td>
+                    <td>{{device.device_type}}</td>
+                    <td>{{device.device}}</td>
+                    <td>{{device.time}}</td>
                 </tr>
-                <tr>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                    <td>Text</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 
 </html>

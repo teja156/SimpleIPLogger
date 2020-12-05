@@ -32,9 +32,12 @@ p {
 
 .url-text {
   font-size: 25px;
+  margin-top:25px;
+  margin-bottom:20px;
+
 }
 
 .footer {
-  margin-top: 35px;
+  margin-top: 50px;
 }
 
