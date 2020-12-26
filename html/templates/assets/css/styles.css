@@ -32,12 +32,53 @@ p {
 
 .url-text {
   font-size: 25px;
-  margin-top:25px;
-  margin-bottom:20px;
-
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 .footer {
   margin-top: 50px;
 }
 
+.gradbody {
+  background: linear-gradient(273deg, #211a1a, #5030a9, #c21f1f);
+  background-size: 600% 600%;
+
+  -webkit-animation: gradchange 10s ease infinite;
+  -moz-animation: gradchange 10s ease infinite;
+  animation: gradchange 10s ease infinite;
+}
+
+@-webkit-keyframes gradchange {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@-moz-keyframes gradchange {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes gradchange {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}

@@ -1,41 +1,125 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     {% load static %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>IPLogger</title>
-    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/Search-Input-Responsive-with-Icon.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
-</head>
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/fonts/fontawesome-all.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/Search-Input-Responsive-with-Icon.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}" />
+    <script>
+      function copyurl() {
+        /* Get the text field */
+        var copyText = document.getElementById("shorturl");
 
-<body style="text-align: center;">
-    <h1 class="text-center heading-text">IP Logger</h1>
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
+      }
+      function copytrurl() {
+        /* Get the text field */
+        var copyText = document.getElementById("shorttrurl");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.value);
+      }
+    </script>
+  </head>
+
+  <body style="text-align: center" class="gradbody">
+    <h1 class="text-center heading-text text-white display-4">
+      IP Logger / URL Shortner 🔗🔥
+    </h1>
     <div class="row">
-        <div class="col-md-10 offset-md-1">
-            <div class="card m-auto" style="max-width:850px">
-                <div class="card-body">
-                    <form action="{%url 'shorten' %}" method="post" class="d-flex align-items-center"><i class="fas fa-link d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" id="URL" type="search" placeholder="Enter link to shorten" name="URL" style="width: 648px;height: 39px;">
-                        <button
-                            class="btn btn-success btn-lg" type="submit">Shorten</button>
-                    </form>
-
-                </div>
-            </div>
+      <div class="col-md-10 offset-md-1">
+        <div class="card m-auto" style="max-width: 850px">
+          <div class="card-body">
+            <form
+              action="{%url 'shorten' %}"
+              method="post"
+              class="d-flex align-items-center"
+            >
+              <i class="fas fa-link d-none d-sm-block h4 text-body m-0"></i
+              ><input
+                class="form-control form-control-lg flex-shrink-1 form-control-borderless"
+                id="URL"
+                type="search"
+                placeholder="Enter link to shorten"
+                name="URL"
+                style="width: 648px; height: 39px; cursor: pointer"
+                autofocus
+                required
+              />
+              <button class="btn btn-danger btn-lg" type="submit">
+                Shorten 🔗
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
     {% if shortened_link is not None %}
-    <p class="url-text" style="text-align: center;">Shortened URL : {{shortened_link}}&nbsp;</p>
-    
-    <p class="url-text" style="text-align: center;">Tracking URL : {{tracking_link}}&nbsp;</p>
+    <p class="url-text" style="text-align: center">
+      Shortened URL :
+      <input
+        type="text"
+        value="{{shortened_link}}"
+        readonly
+        id="shorturl"
+      /><button class="btn btn-success" onclick="copyurl();">
+        Copy Shortened URL🔗 <i class="far fa-copy"></i></button
+      >&nbsp;
+    </p>
+
+    <p class="url-text" style="text-align: center">
+      Tracking URL :
+      <input
+        type="text"
+        value="{{tracking_link}}"
+        readonly
+        id="shorttrurl"
+      /><button class="btn btn-success" onclick="copytrurl();">
+        Copy Tracking URL 🔗 <i class="far fa-copy"></i></button
+      >&nbsp;
+    </p>
     {% endif %}
-    
-    <p class="footer">Made with&nbsp;💋 by Teja Swaroop<br><br></p>
+
+    <p class="footer text-white">
+      Made with&nbsp;💋 by Teja Swaroop. Get Source Code At 👉
+      <a
+        href="https://github.com/teja156/SimpleIPLogger"
+        class="btn btn-primary"
+        ><i class="fab fa-github"></i> GitHub</a
+      ><br /><br />
+    </p>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-</body>
-
+  </body>
 </html>
