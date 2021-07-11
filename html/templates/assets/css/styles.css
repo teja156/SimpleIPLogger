@@ -41,7 +41,7 @@ p {
 }
 
 .gradbody {
-  background: linear-gradient(273deg, #211a1a, #5030a9, #c21f1f);
+  background: linear-gradient(273deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 600% 600%;
 
   -webkit-animation: gradchange 10s ease infinite;
