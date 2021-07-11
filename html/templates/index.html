@@ -25,14 +25,18 @@
       function copyurl() {
         /* Get the text field */
         var shorturl = document.getElementById("shorturl").value;
+        // Write to the clipboard
         navigator.clipboard.writeText(shorturl);
       }
       function copytrurl() {
         /* Get the text field */
         var shortturl = document.getElementById("shorttrurl").value;
+        // Write to the clipboard
         navigator.clipboard.writeText(shortturl);
       }
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </head>
 
   <body style="text-align: center" class="gradbody">
@@ -46,7 +50,7 @@
             <form
               action="{%url 'shorten' %}"
               method="post"
-              class="d-flex align-items-center"
+              class="d-flex align-items-center form-group"
             >
               <i class="fas fa-link d-none d-sm-block h4 text-body m-0"></i
               ><input
@@ -78,14 +82,14 @@
           id="shorturl"
           class="form-control"
           style="max-width: 300px; min-width: 250px;"
-        /> <button class="btn btn-success" onclick="copyurl();">
+        /> <button class="btn btn-success btn-cp" onclick="copyurl();" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">
           <i class="far fa-copy"></i></button
         >&nbsp;
       </p>
     </div>
     <div class="form-inline align-middle text-center justify-content-center align-items-center">
       <p class="url-text" style="text-align: center">
-        Tracking URL :
+        Tracking URL : 
         <input
           type="text"
           value="{{tracking_link}}"
@@ -93,11 +97,12 @@
           id="shorttrurl"
           class="form-control"
           style="max-width: 300px; min-width: 250px;"
-        /> <button class="btn btn-success" onclick="copytrurl();">
+        /> <button class="btn btn-success btn-cp" onclick="copytrurl();" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">
           <i class="far fa-copy"></i></button
         >&nbsp;
       </p>
     </div>
+    <script>$(function(){$('[data-toggle="tooltip"]').tooltip();});$(function(){$(".btn-cp").click(function(){$(this).tooltip("hide").attr("data-original-title","copied").tooltip("show"),setTimeout(function(){$(function(){$(".btn-cp").tooltip("hide").attr("data-original-title","Copy to clipboard")})},2e3)})});</script>
     {% endif %}
 
     <p class="footer text-white">
