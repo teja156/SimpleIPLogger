@@ -8,7 +8,7 @@ psycopg2==2.8.6
 python-memcached==1.59
 pytz==2020.4
 PyYAML==5.3.1
-six==1.15.0
+six==1.16.0
 sqlparse==0.4.1
 ua-parser==0.10.0
 user-agents==2.2.0
