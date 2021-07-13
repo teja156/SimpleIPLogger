@@ -24,33 +24,19 @@
     <script>
       function copyurl() {
         /* Get the text field */
-        var copyText = document.getElementById("shorturl");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        /* Alert the copied text */
-        alert("Copied the text: " + copyText.value);
+        var shorturl = document.getElementById("shorturl").value;
+        // Write to the clipboard
+        navigator.clipboard.writeText(shorturl);
       }
       function copytrurl() {
         /* Get the text field */
-        var copyText = document.getElementById("shorttrurl");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        /* Alert the copied text */
-        alert("Copied the text: " + copyText.value);
+        var shortturl = document.getElementById("shorttrurl").value;
+        // Write to the clipboard
+        navigator.clipboard.writeText(shortturl);
       }
     </script>
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
   </head>
 
   <body style="text-align: center" class="gradbody">
@@ -73,7 +59,7 @@
                 type="search"
                 placeholder="Enter link to shorten"
                 name="URL"
-                style="width: 648px; height: 39px; cursor: pointer"
+                style="width: 648px; height: 39px; cursor: text;"
                 autofocus
                 required
               />
@@ -86,40 +72,47 @@
       </div>
     </div>
     {% if shortened_link is not None %}
-    <p class="url-text" style="text-align: center">
-      Shortened URL :
-      <input
-        type="text"
-        value="{{shortened_link}}"
-        readonly
-        id="shorturl"
-      /><button class="btn btn-success" onclick="copyurl();">
-        Copy Shortened URL🔗 <i class="far fa-copy"></i></button
-      >&nbsp;
-    </p>
-
-    <p class="url-text" style="text-align: center">
-      Tracking URL :
-      <input
-        type="text"
-        value="{{tracking_link}}"
-        readonly
-        id="shorttrurl"
-      /><button class="btn btn-success" onclick="copytrurl();">
-        Copy Tracking URL 🔗 <i class="far fa-copy"></i></button
-      >&nbsp;
-    </p>
+    <div class="form-inline align-middle text-center justify-content-center align-items-center">
+      <p class="url-text" style="text-align: center">
+        Shortened URL :
+        <input
+          type="text"
+          value="{{shortened_link}}"
+          readonly
+          id="shorturl"
+          class="form-control"
+          style="max-width: 300px; min-width: 250px;"
+        /> <button class="btn btn-success btn-cp" onclick="copyurl();" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">
+          <i class="far fa-copy"></i></button
+        >&nbsp;
+      </p>
+    </div>
+    <div class="form-inline align-middle text-center justify-content-center align-items-center">
+      <p class="url-text" style="text-align: center">
+        Tracking URL : 
+        <input
+          type="text"
+          value="{{tracking_link}}"
+          readonly
+          id="shorttrurl"
+          class="form-control"
+          style="max-width: 300px; min-width: 250px;"
+        /> <button class="btn btn-success btn-cp" onclick="copytrurl();" data-toggle="tooltip" data-placement="top" title="Copy to clipboard">
+          <i class="far fa-copy"></i></button
+        >&nbsp;
+      </p>
+    </div>
+    <script>$(function(){$('[data-toggle="tooltip"]').tooltip();});$(function(){$(".btn-cp").click(function(){$(this).tooltip("hide").attr("data-original-title","copied").tooltip("show"),setTimeout(function(){$(function(){$(".btn-cp").tooltip("hide").attr("data-original-title","Copy to clipboard")})},2e3)})});</script>
     {% endif %}
 
     <p class="footer text-white">
       Made with&nbsp;💋 by Teja Swaroop. <br><br> Get Source Code At 👉
       <a
         href="https://github.com/teja156/SimpleIPLogger"
+        target="_blank"
         class="btn btn-primary"
         ><i class="fab fa-github"></i> GitHub</a
       ><br /><br />
     </p>
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
   </body>
 </html>
