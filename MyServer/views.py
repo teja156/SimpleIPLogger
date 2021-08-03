@@ -37,7 +37,7 @@ def get_client_ip(request):
 
 
 def get_client_data(request):
-	browser = request.user_agent.browser.family + " "+ request.user_agent.browser.version_string
+	browser = request.user_agent.browser.family + " "+ str(request.user_agent.browser.version[0])
 	os = request.user_agent.os.family + " "+ request.user_agent.os.version_string
 	device = request.user_agent.device.family
 

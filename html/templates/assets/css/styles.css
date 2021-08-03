@@ -22,8 +22,7 @@ p {
 }
 
 .table-responsive {
-  margin-left: 10px;
-  margin-left: 10px;
+  text-align: center;
 }
 
 .shortened_url {
@@ -41,7 +40,8 @@ p {
 }
 
 .gradbody {
-  background: linear-gradient(273deg, #211a1a, #5030a9, #c21f1f);
+  overflow: hidden;
+  background: linear-gradient(273deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 600% 600%;
 
   -webkit-animation: gradchange 10s ease infinite;
@@ -81,4 +81,18 @@ p {
   100% {
     background-position: 0% 51%;
   }
+}
+
+.trackinglink {
+  font: 20px;
+  transition: 0.5s;
+  color: inherit;
+  border-bottom: 1px solid blue;
+  font-size: 15px;
+}
+
+.trackinglink:hover {
+  transition: 0.5s;
+  text-decoration: none;
+  color: blue;
 }
