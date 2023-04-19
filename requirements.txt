@@ -9,7 +9,7 @@ python-memcached==1.59
 pytz==2020.4
 PyYAML==5.4
 six==1.15.0
-sqlparse==0.4.2
+sqlparse==0.4.4
 ua-parser==0.10.0
 user-agents==2.2.0
 whitenoise==5.2.0
